@@ -180,8 +180,7 @@ export default function App() {
             className="relative"
           >
             <div className="aspect-square bg-brand-blue rounded-2xl overflow-hidden shadow-2xl relative z-10">
-               {/* Placeholder for Profile Image */}
-               <img 
+              <img 
                 src="/profile.jpg" 
                 alt="Tafhimul Islam" 
                 className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
@@ -189,7 +188,7 @@ export default function App() {
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/tutor/800/800";
                 }}
-               />
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 border-8 border-white rounded-2xl z-0 hidden md:block"></div>
           </motion.div>
@@ -364,7 +363,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Marquee Container */}
         <div className="relative w-full overflow-hidden">
           <div className="marquee-content gap-6 px-6">
             {[
@@ -373,7 +371,6 @@ export default function App() {
               { id: 'NssFrtmAWgU' },
               { id: '9BTkQRC3Ta8' },
               { id: 'TiPJ2WBDFaI' },
-              // Duplicate for seamless loop
               { id: 'PuVnVG5yb6A' },
               { id: 'DniwB_ZfgXc' },
               { id: 'NssFrtmAWgU' },
@@ -481,28 +478,32 @@ export default function App() {
                 desc: 'A comprehensive fitness management system designed for students, featuring workout tracking, progress monitoring, and a personalized dashboard to stay "addicted to getting stronger."',
                 tags: ['Java', 'GUI', 'Management System'],
                 image: '/fitness.jpg',
-                fallback: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop'
+                fallback: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop',
+                link: '#'
               },
               {
                 title: 'Online Class Platform',
                 desc: 'An interactive learning management system for "Think Easy Academy" that facilitates online courses, instructor profiles, and seamless student-teacher interaction.',
                 tags: ['Web', 'Education', 'LMS'],
                 image: '/Online Class Platform.jpg',
-                fallback: 'https://picsum.photos/seed/onlineclass/800/500'
+                fallback: 'https://picsum.photos/seed/onlineclass/800/500',
+                link: 'https://thinkeasyacademy.kesug.com/login/'
               },
               {
                 title: 'TO-LET BD',
                 desc: 'A specialized house rental platform in Bangladesh that simplifies the process of finding and listing properties for rent with secure user authentication and property management.',
                 tags: ['Database', 'Real Estate', 'Authentication'],
                 image: '/TO-LET BD.jpg',
-                fallback: 'https://picsum.photos/seed/house/800/500'
+                fallback: 'https://picsum.photos/seed/house/800/500',
+                link: '#'
               },
               {
                 title: 'Day Planner',
                 desc: 'A productivity-focused task management application that helps users plan their daily schedules, track to-dos, and manage upcoming events with a clean timeline view.',
                 tags: ['Productivity', 'Java', 'UI/UX'],
                 image: '/Day Planner.jpg',
-                fallback: 'https://picsum.photos/seed/planner/800/500'
+                fallback: 'https://picsum.photos/seed/planner/800/500',
+                link: '#'
               }
             ].map((project, idx) => (
               <motion.div
@@ -534,9 +535,15 @@ export default function App() {
                       </span>
                     ))}
                   </div>
-                  <button className="flex items-center gap-2 text-brand-blue font-semibold text-sm group-hover:gap-3 transition-all">
+
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-brand-blue font-semibold text-sm group-hover:gap-3 transition-all"
+                  >
                     View Project <ChevronRight size={16} />
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}
